@@ -27,6 +27,17 @@ namespace TEST
                     Matrix[i, j] = rand;
                 }
             }
+            //Выводим матрицу на экран
+            for (int i = 0; i < r; i++)
+            {
+                for (int j = 0; j < r; j++)
+                {
+                    Console.Write(Matrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }                    
+            Console.ReadKey();
+
 
         }
     }
