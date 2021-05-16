@@ -66,21 +66,38 @@ namespace TEST
         static void Main(string[] args)
         {
 
-            //Вводим и читаем размер
-            Console.Write("Введите размер квадратной матрицы: ");
-            int r = Convert.ToInt16(Console.ReadLine());
+            while (true)
+            {
+                //Вводим и читаем размер
+                Console.Write("Введите размер квадратной матрицы или q для выхода: ");
+                String sym = Console.ReadLine();
 
-            //создаём матрицу
-            MyMatrix matrix = new MyMatrix(r);
+                if (sym == "q")
+                {
+                    break;
+                }
 
-            // выводим матрицу
-            matrix.OutMatrix();
-            Console.WriteLine("------------------");
+                int dim;
+                bool result = int.TryParse(sym, out dim);
 
-            // поиск минимального элемента
-            Console.WriteLine(matrix.MinMatrix());
-            
-            Console.ReadKey();
+                if (result == true)
+                {
+                    //создаём матрицу
+                    MyMatrix matrix = new MyMatrix(dim);
+
+                    // выводим матрицу
+                    matrix.OutMatrix();
+                    Console.WriteLine("------------------");
+
+                    // поиск минимального элемента
+                    Console.WriteLine(matrix.MinMatrix());
+                }
+                else
+                {
+                    Console.WriteLine("Некорректное число!");
+                }
+
+            }
         }
     }
 }
