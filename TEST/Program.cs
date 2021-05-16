@@ -35,10 +35,28 @@ namespace TEST
                     Console.Write(Matrix[i, j] + "\t");
                 }
                 Console.WriteLine();
-            }                    
+            }
+            Console.WriteLine("------------------");
+            Console.WriteLine(MinMatrix(Matrix));
             Console.ReadKey();
-
+        }
+        public static int MinMatrix(int[,] matrix)
+        {
+            int n = (int)Math.Sqrt(matrix.Length);
+            int min = matrix[0, 0];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (matrix[i, j] < min)
+                    {
+                        min = matrix[i, j];
+                    }
+                }
+            }
+            return min;
 
         }
     }
 }
+
